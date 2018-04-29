@@ -6,9 +6,9 @@ const shortenURL = (server) => {
 	/* Fetches a response from the given server. */
     fetch(server)
 	.then(function(response) {
-        response.json();
+        return response.json();
     }).then(function(data) {
-		document.querySelector('urlList').innerHTML = `<p>${data.body}`
+		console.log(data)
     })
 }
 /* Makes this run when we hit the 'SHORTEN URL' button */
