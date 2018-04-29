@@ -1,0 +1,1 @@
+//This is a placeholder javascript file to be replaced by actual code later.
