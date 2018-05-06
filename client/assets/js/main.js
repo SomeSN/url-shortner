@@ -1,20 +1,43 @@
-const serverURL = 'http://localhost:3000/'
+let urls = []
 
-/* Function which posts the request to shorten the URL to the server. Called when the button is pressed. */
-const shortenURL = (server) => {
-    const data = {
-        'url': 'http://google.com',
-        'code': 'some code'
-    };
-    console.log('Saving the following object to the server:', data);
-	/* Fetches a response from the given server. */
-    fetch(serverURL, data)
-	.then(function(response) {
-        return response.json();
-    }).then(function(reponse) {
-		console.log(reponse)
-    })
+
+const urlsJSON = localStorage.getItem('urls')
+
+  if (urlsJSON !== null) {
+    urls = JSON.parse(urlsJSON)
+  }
+
+
+const renderurls = function (urls) {
+
+  document.querySelector('#shortened-url-lists').innerHTML = ''
+
+
+  const summary = document.createElement ('h3')
+    summary.textContent = 'Shortened version of our favorite URL'
+    document.querySelector('#shortened-url-lists').appendChild(summary)
+
+  urls.forEach(function (url) {
+    const newURL = document.createElement('p')
+    newURL.textContent = url.shortenedURL
+    document.querySelector('#shortened-url-lists').appendChild(newURL)
+  })
 }
 
-/* Makes this run when we hit the 'SHORTEN URL' button */
-document.querySelector('.button-shorten-url').onclick = shortenURL
+renderurls(urls)
+
+//===================================
+document.querySelector('#form').addEventListener('submit', function (e) {
+  //listen to submit --> when the form is submited --> do something
+  e.preventDefault()
+  urls.push({ // push the data onto the array
+    shortenedURL: e.target.elements.shortenedURL.value
+  })
+
+  localStorage.setItem('urls', JSON.stringify(urls))
+
+  renderurls(urls)
+  e.target.elements.originalURL.value = ''
+  e.target.elements.shortenedURL.value = ''
+
+  })

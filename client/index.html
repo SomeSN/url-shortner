@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>URL Shortener</title>
-    <link rel="stylesheet" href="assets/styles.css">
-  </head>
-  <body>
-  		<h1>URL Shortener</h1>
-      <form class="form-inline">
-    			<div class="row">
-        			<label>Shortened URL:</label>
-              <input id="shortURL" type="text" placeholder="Short URL you'd like to use here.">
-          </div>
-          <div class="row">
-        			<label>Original/Long URL:</label>
-              <input id="originalURL" type="text" placeholder="Orignal URL here.">
-          </div>
-          <button class="button-shorten-url">SHORTEN URL</button>
-        </form>
-		<div id="urlList"></div>
-    <script type="text/javascript" src="assets/js/main.js"></script>
-  </body>
+    <head>
+        <meta charset="utf-8">
+        <title>URL Shortener</title>
+        <meta name="tk-noi-megan-amm">
+        <meta name="shortened favorit URL for an easy to remember and fast access" content="shortened fav-URL">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="assets/css/main.css">
+    </head>
+
+    <body>
+      <div class="container">
+        <div class="main">
+		  <h1>SomeSN URL Shortener</h1>
+      <p class="lead">Created by: TK, Noi, Megan, and Saranrat</p>
+
+      <form id="form" action="">
+
+          <label>Original URL:
+              <input id="originalURL" type="text" placeholder="Your favorite URL">
+          </label>
+
+  				<label>Shortened URL:
+              <input id="shortenedURL" type="text" placeholder="Create a shorter URL">
+          </label>
+
+        <button class="create-shorten-url">Create</button>
+		</form>
+    </div>
+    <div id="result">
+		<div id="shortened-url-lists"></div>
+    </div>
+    </div> <!-- container -->
+
+        <script type="text/javascript" src="assets/js/main.js"></script>
+    </body>
 </html>

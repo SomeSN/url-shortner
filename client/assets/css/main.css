@@ -1,0 +1,91 @@
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.1rem;
+}
+
+/* autoprefixer({ grid: true }) */
+
+h1, h2, h3, h4 {
+  text-align: center;
+  color: #c7784c ;
+}
+h1 {
+  margin: 30px 0 0 0;
+}
+.lead {
+  font-size: 1rem;
+  text-align: center;
+  margin: 10px 0 50px 0;
+}
+p {
+  line-height: 30px;
+  color: #c7784c ;
+}
+
+.container {
+  display: grid;
+  display: -ms-grid;
+
+  width: 80vw;
+  height: 100vh;
+  grid-template-columns: 1fr;
+    -ms-grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+    -ms-grid-template-rows: 1fr;
+  margin: 0 auto;
+
+  /* background-color: #ffd3ec; */
+  background-color: #f8f7f5;
+  box-shadow: .25px 2px 50px 2px #ddb79b;
+}
+
+#form {
+  display: grid;
+  display: -ms-grid;
+  justify-content: center;
+    -ms-align-items: center;
+  align-items: start;
+  width: 80vw;
+  height: 30vh;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 6px 6px;
+  margin: 10px 0;
+  background-color: #f4f7f6;
+}
+
+label {
+  color: #518e90;
+}
+
+button:hover {
+  background-color: #abc2ba;
+  color: #fff;
+}
+
+.create-shorten-url {
+  padding: 5px 5px;
+}
+
+#result {
+  display: grid;
+  display: -ms-grid;
+  justify-content: center;
+    -ms-align-items: center;
+  align-items: start;
+  width: 80vw;
+  height: 30vh;
+}
+#shortened-url-list {
+  margin: 30px 0 0 0;
+}
