@@ -3,28 +3,37 @@
     <head>
         <meta charset="utf-8">
         <title>URL Shortener</title>
-        <link rel="stylesheet" href="/assets/styles.css">
+        <meta name="tk-noi-megan-amm">
+        <meta name="shortened favorit URL for an easy to remember and fast access" content="shortened fav-URL">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="assets/css/main.css">
     </head>
+
     <body>
-		<h1>URL Shortener</h1>
-        <form class="form-inline">
-<!-- Preparation for an additional potential feature allowing you to name your shortened URL.
-			<div class="row">
-				<label>Reference Name:</label>
-                <input id="name" type="text" placeholder="Input a non URL name for your shortened URL here.">
-            </div>
--->
-			<div class="row">
-				<label>Shortened URL:</label>
-                <input id="shortURL" type="text" placeholder="Input the shorthand you want to use as your URL here.">
-            </div>
-			<div class="row">
-				<label>Original/Long URL:</label>
-                <input id="originalURL" type="text" placeholder="Input the orignal URL you want shortened here.">
-            </div>
-            <button class="button-shorten-url">SHORTEN URL</button>
+      <div class="container">
+        <div class="main">
+		  <h1>SomeSN URL Shortener</h1>
+      <p class="lead">Created by: TK, Noi, Megan, and Saranrat</p>
+
+      <form id="form" action="">
+
+          <label>Original URL:
+              <input id="originalURL" type="text" placeholder="Your favorite URL">
+          </label>
+
+  				<label>Shortened URL:
+              <input id="shortenedURL" type="text" placeholder="Create a shorter URL">
+          </label>
+
+        <button class="create-shorten-url">Create</button>
 		</form>
-		<div id="urlList"></div>
-        <script type="text/javascript" src="assets/js/server-interaction.js"></script>
+    </div>
+    <div id="result">
+		<div id="shortened-url-lists"></div>
+    </div>
+    </div> <!-- container -->
+
+        <script type="text/javascript" src="assets/js/main.js"></script>
     </body>
 </html>
