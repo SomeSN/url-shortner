@@ -2,7 +2,7 @@ module.exports = {
 	/* Returns a random character from A-Z, a-z or 0-9. */
 	randomCharGenerator: () => {
 		const availableChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-		let generatedCharacter = Math.floor(Math.random()*(availableChars.length))
+		const generatedCharacter = Math.floor(Math.random()*(availableChars.length))
 		return availableChars.charAt(generatedCharacter)
 	},
 
