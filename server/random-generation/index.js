@@ -38,21 +38,21 @@ module.exports = {
 			randomNumber = Math.floor(randomNumber)
 		}
 		return randomNumber - negativeAdjustment
-	}
+	},
 
 	/* Shorthand for the above function. */
 	RNG: (valueOne, valueTwo, whole) => {
-		return this.randomNumberGenerator(valueOne, valueTwo, whole)
-	}
+		return module.exports.randomNumberGenerator(valueOne, valueTwo, whole)
+	},
 
 	/* Returns a random character out of a given string of characters. If a non string or no value at all is given, it defaults to returning a character from A-Z, a-z or 0-9. */
 	randomCharGenerator: (availableChars) => {
 		if(typeof availableChars !== 'string'){
 			availableChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 		}
-		let generatedCharacter = this.randomNumberGenerator(availableChars.length)
+		let generatedCharacter = module.exports.randomNumberGenerator(availableChars.length)
 		return availableChars.charAt(generatedCharacter)
-	}
+	},
 
 	/* Returns a random string of characters up to the given string length taken from the string of available characters. Any decimals in the string length will be ignored and the default value is 7. Default available characters are A-Z, a-z and 0-9. */
 	randomStringGenerator: (stringLength, availableChars) => {
@@ -63,7 +63,7 @@ module.exports = {
 		}
 		let randomString = ''
 		for(let i = 0; i < stringLength; i++){
-			randomString += this.randomCharGenerator(availableChars)
+			randomString += module.exports.randomCharGenerator(availableChars)
 		}
 		return randomString
 	}
