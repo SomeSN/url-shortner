@@ -35,7 +35,7 @@ const renderurls = function (urls) {
 
 
   const summary = document.createElement ('h3')
-    summary.textContent = 'Shortened version of our favorite URL'
+    summary.textContent = 'A shortened version of your URL'
     document.querySelector('#shortened-url-lists').appendChild(summary)
 
   urls.forEach(function (url) {
