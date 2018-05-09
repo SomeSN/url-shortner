@@ -20,7 +20,7 @@ app.use(cors())
 // create the routes:
 // app.post('/response', routes.postForm)
 
-app.post('', routes.postForm)
+app.post('/urls', routes.postForm)
 
 app.get('/', (request, response) => {
     return response.status(200).send({
