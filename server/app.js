@@ -1,4 +1,4 @@
-//import libraries:
+// import libraries
 const express = require('express')
 const errorhandler = require('errorhandler')
 const logger = require('morgan')
@@ -12,7 +12,7 @@ const mongoDB = 'URLdatabase'
 // start the express app:
 const app = express()
 
-//database connection
+// database connection
 const DATABASE_NAME = 'URLdatabase'
 const MONGODB_URI = 'mongodb://localhost:27017/' + DATABASE_NAME
 mongoose.connect(MONGODB_URI)
@@ -26,17 +26,14 @@ app.use(logger('dev'))
 app.use(errorhandler())
 app.use(cors())
 
-
 // create the routes:
-// app.post('/response', routes.postForm)
+app.post('/', routes.postForm)
 
-app.post('/urls', routes.postForm)
-
-app.get('/', (req, res) => {
-    return response.status(200).send({
+app.get('/urls', (req, res) => {
+    return res.status(200).send({
         'OK': 'Success'
     })
 })
 
-
 app.listen(3000)
+console.log('they are watching. they are listening.')
