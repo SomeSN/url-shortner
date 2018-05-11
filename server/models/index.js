@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const urlSchema = new mongoose.Schema({
     date_created: Date,
     originalURL: String,
-    shortenedURL: String
+    shortURL: String
 })
 
 module.exports = mongoose.model('Url', urlSchema)
