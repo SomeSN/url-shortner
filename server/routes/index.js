@@ -32,5 +32,18 @@ module.exports = {
 			})
 			save(req.body)
 		}
-	}
+	},
+    doRedirect(req, res) {
+        const shortcode = req.params.shortcode
+
+        Url.findOne({ 'shortURL': shortcode }, function (err, matchedItem) {
+            if (err) {
+                console.error(err)
+                return
+            }
+            //res.status(200).send(matchedItem)
+            res.redirect(matchedItem.originalURL)
+        })
+
+    }
 }

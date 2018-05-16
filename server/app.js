@@ -29,6 +29,8 @@ app.use(cors())
 // create the routes:
 app.post('/', routes.postForm)
 
+app.get('/:shortcode', routes.doRedirect)
+
 app.get('/urls', (req, res) => {
     return res.status(200).send({
         'OK': 'Success'
