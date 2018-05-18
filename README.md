@@ -63,7 +63,7 @@ mongod
 url-shortener/server folder. Then type:
 node app.js
 
-5. Open localhost:3000 in your browser.
+5. open index.html file in your browswer
 
 6. Try the app :)
 
