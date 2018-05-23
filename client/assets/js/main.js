@@ -48,32 +48,3 @@ const verifyURLs = (callbackFunction) => {
 			});
 	}
 }
-
-document.querySelector('#form').addEventListener('submit', function (e) {
-	//listen to submit --> when the form is submited --> do something
-	e.preventDefault()
-	const URLverification = verifyURLs(e)
-	/* URLverification is 0 if everything is fine. */
-	console.log(URLverification)
-	if(URLverification === 0){
-		urls.push({ // push the data onto the array
-			shortenedURL: e.target.elements.shortenedURL.value
-		})
-		localStorage.setItem('urls', JSON.stringify(urls))
-
-		//renderurls(urls)
-	} else {
-		document.querySelector('#shortened-url-lists').innerHTML = ''
-		const summary = document.createElement ('h3')
-		/* URLverification is 1 if the shortURL isn't at least 7 characters long. */
-		if(URLverification === 1){
-			summary.textContent = 'Your short URL must be at least 7 characters long.'
-	/* URLverification is 2 if the originalURL doesn't exist. */
-		} else if(URLverification === 2){
-			summary.textContent = 'Unfortunately that URL does not exist.'
-		}
-		document.querySelector('#shortened-url-lists').appendChild(summary)
-	}
-	e.target.elements.originalURL.value = ''
-	e.target.elements.shortenedURL.value = ''
-})
