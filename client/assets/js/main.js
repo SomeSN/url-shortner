@@ -1,5 +1,5 @@
 /* Function which posts the request to shorten the URL to the server. Called when the button is pressed. */
-const shortenURL = () => {
+const saveToServer = () => {
     const data = {
         'originalURL': document.querySelector('#originalURL').value,
         'shortURL': document.querySelector('#shortURL').value
@@ -22,24 +22,29 @@ const shortenURL = () => {
   })
 }
 
+const shortenURL = () => {
+    //first verify, then send to server if valid:
+    const URLverification = verifyURLs()
+}
+
 document.querySelector('.create-shorten-url').onclick = shortenURL
 
-renderurls(urls)
+//renderurls(urls)
 
 //===================================
-const verifyURLs = (e) => {
-	if(e.target.elements.shortenedURL.value !== '' && e.target.elements.shortenedURL.value.length < 7){
+const verifyURLs = (callbackFunction) => {
+    const originalURL = document.querySelector('#originalURL').value;
+	if(originalURL !== '' && originalURL.length < 7){
 		console.log('Too short.')
-		return 1 //1 means the short URL is too short.
-	} else if(e.target.elements.originalURL.value.length >= 0) {
-		return fetch(e.target.elements.originalURL.value, { mode: 'no-cors' })
+        alert('Too short.')
+	} else if(originalURL.length >= 0) {
+		return fetch(originalURL, { mode: 'no-cors' })
 			.then(response => {
 				console.log('Success! I think.')
-				return 0 //0 means everything is fine.
+				saveToServer()
 			})
 			.catch(error => {
-				console.log('That URL does not exist.')
-				return 2 //2 means the original URL doesn't exist.
+				console.error('That URL does not exist.')
 			});
 	}
 }
@@ -56,7 +61,7 @@ document.querySelector('#form').addEventListener('submit', function (e) {
 		})
 		localStorage.setItem('urls', JSON.stringify(urls))
 
-		renderurls(urls)
+		//renderurls(urls)
 	} else {
 		document.querySelector('#shortened-url-lists').innerHTML = ''
 		const summary = document.createElement ('h3')
