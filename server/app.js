@@ -39,5 +39,5 @@ app.get('/urls', (req, res) => {
     })
 })
 
-app.listen(3000)
+app.listen(process.env.PORT || 3000)
 console.log('they are watching. they are listening.')
