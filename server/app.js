@@ -1,4 +1,5 @@
 // import libraries
+const dotenv = require('dotenv').config()
 const express = require('express')
 const errorhandler = require('errorhandler')
 const logger = require('morgan')
@@ -14,7 +15,7 @@ const app = express()
 
 // database connection
 const DATABASE_NAME = 'URLdatabase'
-const MONGODB_URI = 'mongodb://localhost:27017/' + DATABASE_NAME
+const MONGODB_URI = process.env.DATABASE_URI + DATABASE_NAME
 mongoose.connect(MONGODB_URI)
 mongoose.Promise = global.Promise
 const db = mongoose.connection
