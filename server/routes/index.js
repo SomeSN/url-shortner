@@ -44,7 +44,7 @@ module.exports = {
 				})
 				return
             }
-			console.log('@@@@@@@@@@@@@' + matchedItem.shortURL)
+			console.log('@@@@@@@@@@@@@')
             //res.status(200).send(matchedItem)
             try {
 				console.log('@@@@@@@@@@@@@ trying')
