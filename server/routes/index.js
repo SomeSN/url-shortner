@@ -42,7 +42,11 @@ module.exports = {
                 return
             }
             //res.status(200).send(matchedItem)
-            res.redirect(matchedItem.originalURL)
+            try {
+				res.redirect(matchedItem.originalURL)
+			} catch (e) {
+				console.error(e)
+			}
         })
 
     }
