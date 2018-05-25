@@ -35,7 +35,7 @@ module.exports = {
 	},
     doRedirect(req, res) {
         const shortcode = req.params.shortcode
-
+console.log(shortcode)
         Url.findOne({ 'shortURL': shortcode }, function (err, matchedItem) {
             if (err) {
                 console.error(err)
@@ -43,8 +43,11 @@ module.exports = {
             }
             //res.status(200).send(matchedItem)
             try {
+				console.log('trying to redirect...'******)
+				console.log(matchedItem)
 				res.redirect(matchedItem.originalURL)
 			} catch (e) {
+				console.log('Error finding match!!!!')
 				console.error(e)
 			}
         })
