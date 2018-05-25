@@ -39,10 +39,20 @@ module.exports = {
         Url.findOne({ 'shortURL': shortcode }, function (err, matchedItem) {
             if (err) {
                 console.error(err)
-                return
+				res.status(500).send({
+					message: 'There was a problem connecting to the database.'
+				})
+				return
             }
             //res.status(200).send(matchedItem)
-            res.redirect(matchedItem.originalURL)
+            try {
+				res.redirect(matchedItem.originalURL)
+			} catch(e) {
+				console.error(e)
+				res.status(500).send({
+					message: 'The url failed to connect.'
+				})
+			}
         })
 
     }
