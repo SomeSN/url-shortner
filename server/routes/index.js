@@ -35,6 +35,7 @@ module.exports = {
 	},
     doRedirect(req, res) {
         const shortcode = req.params.shortcode
+				console.log(shortcode)
 
         Url.findOne({ 'shortURL': shortcode }, function (err, matchedItem) {
             if (err) {

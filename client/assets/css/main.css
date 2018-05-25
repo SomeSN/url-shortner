@@ -41,19 +41,19 @@ p {
     -ms-grid-template-rows: 1fr;
   margin: 0 auto;
 
+  justify-content: center;
+    -ms-align-items: center;
+  align-content: start;
+    -ms-align-content: start;
+  align-items: start;
+
   /* background-color: #ffd3ec; */
   background-color: #f8f7f5;
   box-shadow: .25px 2px 50px 2px #ddb79b;
 }
 
 #form {
-  display: grid;
-  display: -ms-grid;
-  justify-content: center;
-    -ms-align-items: center;
-  align-items: start;
-  width: 80vw;
-  height: 30vh;
+  padding: 0 50px;
 }
 
 #form input,
@@ -68,6 +68,11 @@ label {
   color: #518e90;
 }
 
+button {
+  width: 100%;
+  background-color: #d6e3de;
+}
+
 button:hover {
   background-color: #abc2ba;
   color: #fff;
@@ -77,15 +82,9 @@ button:hover {
   padding: 5px 5px;
 }
 
-#result {
-  display: grid;
-  display: -ms-grid;
-  justify-content: center;
-    -ms-align-items: center;
-  align-items: start;
-  width: 80vw;
-  height: 30vh;
-}
+/* #result {
+  padding: 0 5px;
+} */
 #shortened-url-list {
-  margin: 30px 0 0 0;
+  margin: 3px 0 0 0;
 }

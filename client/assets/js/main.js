@@ -1,4 +1,9 @@
 /* Function which posts the request to shorten the URL to the server. Called when the button is pressed. */
+let urls []
+// Check for existing saved date_created
+
+
+
 const saveToServer = () => {
     const data = {
         'originalURL': document.querySelector('#originalURL').value,
@@ -17,19 +22,27 @@ const saveToServer = () => {
       document.querySelector('#shortURL').value = ''
 
       console.log(data)
+      })
 
-      document.getElementById('shortened-url-lists').innerHTML = data.message
-  })
-}
+  }
 
-const shortenURL = () => {
-    //first verify, then send to server if valid:
-    const URLverification = verifyURLs()
-}
+      // document.getElementById('shortened-url-lists').innerHTML = data.message
+      const renderurls = (urls) => {
 
-document.querySelector('.create-shorten-url').onclick = shortenURL
+        document.querySelector('#shortened-url-lists').innerHTML = ''
 
-//renderurls(urls)
+        const summary = document.createElement ('h3')
+          summary.textContent = 'Shortened version of our favorite URL'
+          document.querySelector('#shortened-url-lists').appendChild(summary)
+
+        urls.forEach( (url) => {
+          const newURL = document.createElement('p')
+          newURL.textContent = url.shortenedURL
+          document.querySelector('#shortened-url-lists').appendChild(newURL)
+        })
+      }
+
+      renderurls(urls)
 
 //===================================
 const verifyURLs = (callbackFunction) => {
@@ -37,7 +50,10 @@ const verifyURLs = (callbackFunction) => {
 	if(originalURL !== '' && originalURL.length < 7){
 		console.log('Too short.')
         alert('Too short.')
-	} else if(originalURL.length >= 0) {
+	} else if (originalURL !== 'http://' || originalURL !== 'https://'){
+    console.log('URL is not valid: need http:// or https://')
+        alert('URL is not valid: need http:// or https://')
+  }else if(originalURL.length >= 0) {
 		return fetch(originalURL, { mode: 'no-cors' })
 			.then(response => {
 				console.log('Success! I think.')
