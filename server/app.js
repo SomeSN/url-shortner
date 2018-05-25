@@ -8,15 +8,12 @@ const cors = require('cors')
 const routes = require('./routes')
 const mongodb = require('mongodb')
 const mongoose = require('mongoose')
-const mongoDB = 'URLdatabase'
 
 // start the express app:
 const app = express()
 
 // database connection
-const DATABASE_NAME = 'URLdatabase'
-const MONGODB_URI = 'mongodb://localhost:27017/' + DATABASE_NAME
-mongoose.connect(MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI)
 mongoose.Promise = global.Promise
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'MongoDB connection error'))
@@ -38,5 +35,5 @@ app.get('/urls', (req, res) => {
     })
 })
 
-app.listen(3000)
+app.listen(process.env.PORT || 3000)
 console.log('they are watching. they are listening.')
