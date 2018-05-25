@@ -35,19 +35,22 @@ module.exports = {
 	},
     doRedirect(req, res) {
         const shortcode = req.params.shortcode
-
+		console.log('@@@@@@@@@@@@@'+shortcode)
         Url.findOne({ 'shortURL': shortcode }, function (err, matchedItem) {
-            if (err) {
-                console.error(err)
+			if (err) {
+				console.error(err)
 				res.status(500).send({
 					message: 'There was a problem connecting to the database.'
 				})
 				return
             }
+			console.log('@@@@@@@@@@@@@' + matchedItem.shortURL)
             //res.status(200).send(matchedItem)
             try {
+				console.log('@@@@@@@@@@@@@ trying')
 				res.redirect(matchedItem.originalURL)
 			} catch(e) {
+				console.log('@@@@@@@@@@@@@ doh')
 				console.error(e)
 				res.status(500).send({
 					message: 'The url failed to connect.'
