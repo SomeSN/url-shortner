@@ -1,4 +1,5 @@
 // import libraries
+const dotenv = require('dotenv').config()
 const express = require('express')
 const errorhandler = require('errorhandler')
 const logger = require('morgan')
@@ -14,6 +15,10 @@ const app = express()
 
 // database connection
 const DATABASE_NAME = 'URLdatabase'
+//for heroku deployment
+console.log(process.env.MONGODB_URI)
+const MONGODB_URI = process.env.MONGODB_URI// + DATABASE_NAME
+
 const MONGODB_URI = 'mongodb://localhost:27017/' + DATABASE_NAME
 mongoose.connect(MONGODB_URI)
 mongoose.Promise = global.Promise
@@ -37,5 +42,5 @@ app.get('/urls', (req, res) => {
     })
 })
 
-app.listen(3000)
+app.listen(process.env.PORT || 3000)
 console.log('they are watching. they are listening.')
