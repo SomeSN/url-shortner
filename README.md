@@ -67,6 +67,21 @@ node app.js
 
 6. Try the app :)
 
+## Version Notes
+
+2.0.0:
+	- Moved database functionality to its own module. All database queries were replaced with calls to getExistingURL which queries the database and returns the query which is then run using query.exec.
+	NOTE: This was done to facilitate making validation easier.
+
+	- Validation functionality: Extremely expanded what is validated:
+		- The length of the short URL must be at least 7 characters long. This is redundantly validated on both the client and server side.
+		- The client side original URL validation has been removed for data saving purposes.
+		- Server side original URL validation has been added. It checks to see whether the URL is a legal URL (starts with 'http' or 'localhost') and then attemps to fetch the website to make sure the URL destination exists.
+		- If the user leaves the shortened URL are blank, then a random shortened URL will be generated. This cannot generate a URL that already exists in the database. If it fails to generate a new shortened URL 100 times it returns an internal server error and asks the client to either input a URL manually or try again.
+		- It checks to see if the shortened URL already exists, and if it does, informs the user of this and reminds them where it redirects to.
+	
+	- Clean up refactoring such as removing unecessary requires due to the consolidation of functionality into modules and removing redundant variables.
+
 ## Built With
 
 * [MongoDB](https://docs.mongodb.com/) - Database Program
