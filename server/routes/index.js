@@ -16,8 +16,7 @@ const save = (data) => {
 
 module.exports = {
 	postForm(req, res) {
-		validation.checkShortURL(req)
-		if(validation.checkShortURL(req)){
+		if(validation.checkShortURL(req)) && validation.dirtyLongURLCheck()){
 			res.status(200).send({
 				message: `Success! Your URL has been created: ${req.body.shortURL}`,
 				shortURL: req.body.shortURL,

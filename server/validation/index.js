@@ -13,5 +13,16 @@ module.exports = {
 			return false
 		}
 		return true
+	},
+	/* Checks to make sure that the URL is a legalURL. */
+	dirtyOriginalURLCheck: (req) => {
+		const lowerCaseOriginalURL = req.body.originalURL.toLowerCase();
+		if(lowerCaseOriginalURL.indexOf('http') === 0 || lowerCaseOriginalURL.indexOf('localhost') === 0){
+			return true
+		}
+		res.status(400).send({
+			message: `Sorry. ${req.body.originalURL} is not a valid address.`
+		})
+		return false
 	}
 }
