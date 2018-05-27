@@ -80,7 +80,7 @@ node app.js
 		- If the user leaves the shortened URL are blank, then a random shortened URL will be generated. This cannot generate a URL that already exists in the database. If it fails to generate a new shortened URL 100 times it returns an internal server error and asks the client to either input a URL manually or try again.
 		- It checks to see if the shortened URL already exists, and if it does, informs the user of this and reminds them where it redirects to.
 	
-	- Clean up refactoring such as removing unecessary requires due to the consolidation of functionality into modules and removing redundant variables.
+	- Clean up refactoring such as removing unnecessary requires due to the consolidation of functionality into modules and removing redundant variables.
 
 ## Built With
 
