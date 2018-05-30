@@ -7,7 +7,6 @@ const cors = require('cors')
 const routes = require('./routes')
 const mongodb = require('mongodb')
 const mongoose = require('mongoose')
-const mongoDB = 'URLdatabase'
 
 // start the express app:
 const app = express()
