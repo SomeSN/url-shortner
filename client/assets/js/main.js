@@ -31,6 +31,6 @@ const shortenURL = () => {
 	}
 }
 
-document.querySelector('.create-shorten-url').onclick = shortenURL
 
+document.querySelector('.create-shorten-url').onclick = shortenURL
 //renderurls(urls)
